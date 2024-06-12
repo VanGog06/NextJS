@@ -3,7 +3,13 @@ import { unstable_noStore as noStore } from 'next/cache';
 import { sql } from '@vercel/postgres';
 
 import {
-    CustomerField, CustomersTableType, InvoiceForm, InvoicesTable, LatestInvoiceRaw, Revenue, User
+  CustomerField,
+  CustomersTableType,
+  InvoiceForm,
+  InvoicesTable,
+  LatestInvoiceRaw,
+  Revenue,
+  User,
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -95,6 +101,7 @@ export async function fetchFilteredInvoices(
   currentPage: number,
 ) {
   noStore();
+  console.log('currentPage: ', currentPage);
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
